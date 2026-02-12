@@ -1,0 +1,192 @@
+/* ---- 1. Змінні ---- */
+:root {
+  /* Кольори */
+  --clr-bg: #f4f6f5;
+  --clr-card: #ffffff;
+  --clr-text: #2c2c2c;
+  --clr-text-muted: #6b7b72;
+  --clr-accent: #3a7d5c;
+  --clr-accent-hover: #2e6349;
+  --clr-border: #d4ddd8;
+  --clr-border-focus: #3a7d5c;
+  --clr-placeholder: #9aada0;
+  --clr-btn-text: #ffffff;
+  --clr-btn-secondary: #7a8a82;
+
+  /* Шрифти */
+  --font-base: 'Segoe UI', system-ui, sans-serif;
+
+  /* Розміри */
+  --radius: 8px;
+  --radius-card: 12px;
+  --max-width: 480px;
+  --gap: 20px;
+
+  /* Тіні */
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-focus: 0 0 0 3px rgba(58, 125, 92, 0.2);
+}
+
+/* ---- 2. Базові ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* ---- 3. Контейнер ---- */
+.application-container {
+  width: 100%;
+  max-width: var(--max-width);
+  background: var(--clr-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 2.4rem 2rem;
+  position: relative;
+}
+
+/* ---- 4. Кроки форми ---- */
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+/* ---- 5. Заголовок кроку ---- */
+.step-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.step-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.step-subtitle {
+  font-size: 0.88rem;
+  color: var(--clr-text-muted);
+  margin-top: 0.35rem;
+}
+
+/* ---- 6. Поля форми ---- */
+.step-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--clr-text-muted);
+}
+
+.form-group input {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--clr-text);
+  background: var(--clr-bg);
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 0.7rem 0.85rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input::placeholder {
+  color: var(--clr-placeholder);
+}
+
+.form-group input:focus {
+  border-color: var(--clr-border-focus);
+  box-shadow: var(--shadow-focus);
+}
+
+/* ---- 7. Кнопки ---- */
+.btn {
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.btn:active {
+  opacity: 0.88;
+}
+
+/* Кнопка "Далі" та "Відправити" */
+.btn-next,
+.btn-submit {
+  width: 100%;
+  margin-top: 0.4rem;
+  color: var(--clr-btn-text);
+  background-color: var(--clr-accent);
+}
+
+.btn-next:hover,
+.btn-submit:hover {
+  background-color: var(--clr-accent-hover);
+}
+
+/* Контейнер для двох кнопок (Назад + Відправити) */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 0.4rem;
+}
+
+/* Кнопка "Назад" */
+.btn-back {
+  flex: 1;
+  color: var(--clr-btn-text);
+  background-color: var(--clr-btn-secondary);
+}
+
+.btn-back:hover {
+  background-color: #677770;
+}
+
+/* Кнопка "Відправити" в контейнері */
+.form-actions .btn-submit {
+  flex: 1;
+  margin-top: 0;
+}
+
+/* ---- 8. Адаптивність ---- */
+@media (max-width: 480px) {
+  .application-container {
+    padding: 1.8rem 1.2rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

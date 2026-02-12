@@ -1,19 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travuchka Myravuchka Travka</title>
     <!-- .1. Підключення стилей та іконки: -->
-    <link rel="icon" href="./public/icons/frog-icon.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="public/styles/styles.css" />
+    <link rel="icon" href="./public/icons/frog-icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./public/styles/styles.css" />
   </head>
   <body>
     <!-- .2. Основна структура сторінки: -->
-    <div class="application-container" id="container"></div>
+    <main class="application-container">
+      <section class="form-step active" id="step-1">
+        <header class="step-header">
+          <h1 class="step-title">Крок 1 з 2</h1>
+          <p class="step-subtitle">Введіть ваше ПІБ</p>
+        </header>
 
-    <!-- .3. Робоча логіка для сторінки: -->
+        <form class="step-form" id="form-step-1">
+          <div class="form-group">
+            <label for="first-name">Ім'я:</label>
+            <input type="text" id="first-name" placeholder="Ваше ім'я" required />
+          </div>
+
+          <div class="form-group">
+            <label for="last-name">Прізвище:</label>
+            <input type="text" id="last-name" placeholder="Ваше прізвище" required />
+          </div>
+
+          <div class="form-group">
+            <label for="middle-name">По-батькові:</label>
+            <input type="text" id="middle-name" placeholder="По-батькові" required />
+          </div>
+
+          <button type="submit" class="btn btn-next">Далі</button>
+        </form>
+      </section>
+
+      <section class="form-step" id="step-2">
+        <header class="step-header">
+          <h1 class="step-title">Крок 2 з 2</h1>
+          <p class="step-subtitle">Введіть вашу адресу та контакти</p>
+        </header>
+
+        <form class="step-form" id="form-step-2">
+          <div class="form-group">
+            <label for="street">Вулиця:</label>
+            <input type="text" id="street" placeholder="Назва вулиці" required />
+          </div>
+
+          <div class="form-group">
+            <label for="house-number">Номер будинку:</label>
+            <input type="text" id="house-number" placeholder="№ будинку" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" placeholder="+380 XX XXX XX XX" required />
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-back">Назад</button>
+            <button type="submit" class="btn btn-submit">Відправити</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- .3. Підключення робочої логіки: -->
     <script type="module" src="./public/script/main-logic.js"></script>
   </body>
 </html>
